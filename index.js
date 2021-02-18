@@ -3,22 +3,33 @@ const app = express();
 
 const PORT = process.env.PORT || 5000;
 
+const quotes = [
+  {
+    id: 1,
+    quote:
+      'You’re braver than you believe, stronger than you seem and smarter than you think',
+    source: 'Christopher Robin',
+  },
+  {
+    id: 2,
+    quote: 'People say nothing is impossible, but I do nothing every day.',
+    source: 'Winnie the Pooh',
+  },
+  {
+    id: 3,
+    quote: 'It never hurts to keep looking for sunshine.',
+    source: 'Eeyore',
+  },
+];
+
 app.get('/', (req, res) => {
   res.json({
     message: 'hello world',
   });
 });
 
-app.get('/api', (req, res) => {
-  res.json({
-    title: 'Relaxing Spa API',
-    description: 'This is a sample server for a Relaxing Spa API.',
-    license: {
-      name: 'Apache 2.0',
-      url: 'https://www.apache.org/licenses/LICENSE-2.0.html',
-    },
-    version: '1.0.1',
-  });
+app.get('/quotes', (req, res) => {
+  res.json(quotes);
 });
 
 app.listen(PORT, () => {
